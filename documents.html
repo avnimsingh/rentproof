@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RentProof — Documents</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <div class="topbar">
+    <a href="index.html" class="brand"><span class="brand-mark">RP</span> RentProof</a>
+    <div class="nav-links">
+      <a href="index.html">Dashboard</a>
+      <a href="inspection.html">Inspections</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="documents.html" class="active">Documents</a>
+      <a href="report.html">Evidence Report</a>
+    </div>
+    <div class="user-chip">
+      <span id="userName">…</span>
+      <button class="icon-btn" id="logoutBtn">Log out</button>
+    </div>
+  </div>
+
+  <main class="content">
+    <span class="eyebrow">Paperwork, all in one place</span>
+    <h1 class="page-title">Documents</h1>
+    <p class="page-sub">Your lease, receipts, and any messages from your landlord. Screenshot a text thread, snap a photo of a receipt — it all lives here instead of scattered across apps.</p>
+
+    <div class="card">
+      <form id="docForm">
+        <div class="field-row">
+          <div>
+            <label for="category">Category</label>
+            <select id="category">
+              <option value="lease">Lease</option>
+              <option value="receipt">Receipt / payment</option>
+              <option value="communication">Landlord communication</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="e.g. Signed lease, August rent receipt" required>
+          </div>
+        </div>
+
+        <label for="notes">Notes (optional)</label>
+        <textarea id="notes" placeholder="Any context worth remembering later."></textarea>
+
+        <label for="file">Attach a photo or screenshot</label>
+        <input type="file" id="file" accept="image/*">
+        <div id="preview" style="display:none;" class="mt-1"></div>
+
+        <button type="submit" class="btn btn-ghost-dark mt-1" id="saveBtn" style="background:var(--brass);color:var(--ink);">Save document</button>
+      </form>
+    </div>
+
+    <div class="section-head mt-2">
+      <h3 style="color:var(--paper);">Filed documents</h3>
+    </div>
+    <div class="flex-gap mt-1" style="margin-bottom:14px;">
+      <button class="btn btn-ghost btn-sm filter-btn active" data-cat="all">All</button>
+      <button class="btn btn-ghost btn-sm filter-btn" data-cat="lease">Lease</button>
+      <button class="btn btn-ghost btn-sm filter-btn" data-cat="receipt">Receipts</button>
+      <button class="btn btn-ghost btn-sm filter-btn" data-cat="communication">Communications</button>
+      <button class="btn btn-ghost btn-sm filter-btn" data-cat="other">Other</button>
+    </div>
+    <div id="docList"></div>
+  </main>
+</div>
+
+<script type="module" src="js/documents.js"></script>
+</body>
+</html>
