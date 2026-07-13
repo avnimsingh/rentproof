@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RentProof — Log in</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <div class="brand-mark" style="border-color:#FF6B35;color:#FF6B35;">RP</div>
+        <span>RentProof</span>
+      </div>
+
+      <div class="auth-tabs">
+        <button type="button" id="tabLogin">Log in</button>
+        <button type="button" id="tabSignup">Sign up</button>
+      </div>
+
+      <form id="authForm">
+        <div id="nameField" style="display:none;">
+          <label for="name">Your name</label>
+          <input type="text" id="name" placeholder="Avni Sharma" autocomplete="name">
+        </div>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required autocomplete="email" placeholder="you@tamu.edu">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" required autocomplete="current-password" minlength="6" placeholder="At least 6 characters">
+
+        <div id="propertyField" style="display:none;">
+          <label for="property">Rental address (optional)</label>
+          <input type="text" id="property" placeholder="123 College Main St, Apt 4">
+        </div>
+
+        <button type="submit" id="submitBtn" class="btn btn-primary btn-block">Log in</button>
+      </form>
+
+      <p class="text-small text-muted mt-1" style="text-align:center;">
+        Every entry you log gets a timestamp. That's the whole point.
+      </p>
+    </div>
+  </div>
+
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
