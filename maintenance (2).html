@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RentProof — Maintenance</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <div class="topbar">
+    <a href="index.html" class="brand"><span class="brand-mark">RP</span> RentProof</a>
+    <div class="nav-links">
+      <a href="index.html">Dashboard</a>
+      <a href="inspection.html">Inspections</a>
+      <a href="maintenance.html" class="active">Maintenance</a>
+      <a href="documents.html">Documents</a>
+      <a href="report.html">Evidence Report</a>
+    </div>
+    <div class="user-chip">
+      <span id="userName">…</span>
+      <button class="icon-btn" id="logoutBtn">Log out</button>
+    </div>
+  </div>
+
+  <main class="content">
+    <span class="eyebrow">Repairs & requests</span>
+    <h1 class="page-title">Maintenance</h1>
+    <p class="page-sub">Log every repair request the moment you make it. If it takes your landlord three weeks to fix something, this is your proof of when you asked.</p>
+
+    <div class="card">
+      <form id="ticketForm">
+        <div class="field-row">
+          <div>
+            <label for="title">What's the issue?</label>
+            <input type="text" id="title" placeholder="e.g. Leaking kitchen faucet" required>
+          </div>
+          <div>
+            <label for="priority">Priority</label>
+            <select id="priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High — safety or major damage</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="description">Details</label>
+        <textarea id="description" placeholder="Where is it, when did it start, anything you've already tried or reported." required></textarea>
+
+        <div class="flex-gap" style="margin-bottom:16px;">
+          <input type="checkbox" id="formalWording" style="width:auto;margin:0;">
+          <label for="formalWording" style="margin:0;font-weight:500;">Format as a formal written request (recommended — creates a stronger paper trail)</label>
+        </div>
+        <div id="formalPreview" style="display:none;background:var(--paper-dim);border-radius:8px;padding:14px;margin-bottom:16px;font-family:'IBM Plex Mono',monospace;font-size:0.82rem;white-space:pre-wrap;"></div>
+
+        <label for="photo">Photo (optional)</label>
+        <input type="file" id="photo" accept="image/*" capture="environment">
+        <div id="preview" style="display:none;" class="mt-1"></div>
+
+        <button type="submit" class="btn btn-teal mt-1" id="saveBtn">Log request</button>
+      </form>
+    </div>
+
+    <div class="section-head mt-2">
+      <h3 style="color:var(--paper);">Your requests</h3>
+    </div>
+    <div id="ticketList"></div>
+  </main>
+</div>
+
+<script type="module" src="maintenance.js"></script>
+</body>
+</html>
